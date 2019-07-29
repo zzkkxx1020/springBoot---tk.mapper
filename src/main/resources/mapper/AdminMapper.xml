@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mappertest.demo.mapper.AdminMapper">
+    <resultMap id="resultUserMap" type="com.mappertest.demo.pojo.UserInfo" autoMapping="true">
+        <id property="id" column="id"></id>
+    </resultMap>
+    <select id="findByUser" resultMap="resultUserMap">
+        SELECT
+            users.login_name,
+            users.email,
+            users.phone_num
+        FROM
+            user_info users
+        WHERE
+            users.NAME = #{arg0}
+            AND users.user_level = #{arg1}
+    </select>
+</mapper>
